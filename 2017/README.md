@@ -3,7 +3,7 @@ Solutions for [advent of code 2017](http://adventofcode.com/2017). All of the so
 
 Most of the programs can be run with
 ```bash
-python3 day_xy.py < input.txt
+python3 day_xy.py < in
 ```
 
 Don't forget to replace the input with your input, since everybody gets a different one.
