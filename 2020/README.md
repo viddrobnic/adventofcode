@@ -12,7 +12,7 @@ My solutions for [Advent of Code 2020](https://adventofcode.com/2020/).
 | Day 6  | Custom Customs              | 🎄     |
 | Day 7  | Handy Haversacks            | 🎄     |
 | Day 8  | Handheld Halting            | 🎄     |
-| Day 9  | ?                           | ❄      |
+| Day 9  | Encoding Error              | 🎄     |
 | Day 10 | ?                           | ❄      |
 | Day 11 | ?                           | ❄      |
 | Day 12 | ?                           | ❄      |
