@@ -17,7 +17,7 @@ My solutions for [Advent of Code 2020](https://adventofcode.com/2020/).
 | Day 11 | Seating System              | 🎄     | 🎄   |
 | Day 12 | Rain Risk                   | 🎄     | 🎄   |
 | Day 13 | Shuttle Search              | 🎄     | 🎄   |
-| Day 14 | ?                           | ❄      | ❄    |
+| Day 14 | Docking Data                | 🎄     | ❄    |
 | Day 15 | ?                           | ❄      | ❄    |
 | Day 16 | ?                           | ❄      | ❄    |
 | Day 17 | ?                           | ❄      | ❄    |
