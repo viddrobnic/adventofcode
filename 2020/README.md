@@ -18,7 +18,7 @@ My solutions for [Advent of Code 2020](https://adventofcode.com/2020/).
 | Day 12 | Rain Risk                   | 🎄     | 🎄   |
 | Day 13 | Shuttle Search              | 🎄     | 🎄   |
 | Day 14 | Docking Data                | 🎄     | ❄    |
-| Day 15 | Rambunctious Recitation     | 🎄     | ❄    |
+| Day 15 | Rambunctious Recitation     | 🎄     | 🎄   |
 | Day 16 | ?                           | ❄      | ❄    |
 | Day 17 | ?                           | ❄      | ❄    |
 | Day 18 | ?                           | ❄      | ❄    |
