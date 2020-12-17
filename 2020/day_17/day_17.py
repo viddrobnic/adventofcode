@@ -42,6 +42,7 @@ def active_neighbors(pos, cubes, neigh_func):
 
 def cycle(cubes, neigh_func):
     to_change = set()
+    seen = set()
 
     for cube in cubes.keys():
         if not cubes[cube]:
@@ -53,6 +54,10 @@ def cycle(cubes, neigh_func):
             to_change.add(cube)
 
         for n in neigh_func(*cube):
+            if n in seen:
+                continue
+            seen.add(n)
+
             if n not in cubes or not cubes[n]:
                 if active_neighbors(n, cubes, neigh_func) == 3:
                     to_change.add(n)
