@@ -23,7 +23,7 @@ My solutions for [Advent of Code 2020](https://adventofcode.com/2020/).
 | Day 17 | Conway Cubes                | 🎄     | ❄    |
 | Day 18 | Operation Order             | 🎄     | 🎄   |
 | Day 19 | Monster Messages            | 🎄     | ❄    |
-| Day 20 | ?                           | ❄      | ❄    |
+| Day 20 | Jurassic Jigsaw             | 🎄     | ❄    |
 | Day 21 | ?                           | ❄      | ❄    |
 | Day 22 | ?                           | ❄      | ❄    |
 | Day 23 | ?                           | ❄      | ❄    |
