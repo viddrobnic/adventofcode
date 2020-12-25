@@ -27,5 +27,5 @@ My solutions for [Advent of Code 2020](https://adventofcode.com/2020/).
 | Day 21 | Allergen Assessment         | 🎄     | ❄    |
 | Day 22 | Crab Combat                 | 🎄     | ❄    |
 | Day 23 | Crab Cups                   | 🎄     | ❄    |
-| Day 24 | ?                           | ❄      | ❄    |
+| Day 24 | Lobby Layout                | 🎄     | ❄    |
 | Day 25 | ?                           | ❄      | ❄    |
