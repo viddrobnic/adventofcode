@@ -5,11 +5,11 @@ fn main() {
         .map(|s| s.parse().unwrap())
         .collect();
 
-    day_01(&input);
-    day_02(&input);
+    parto_one(&input);
+    part_two(&input);
 }
 
-fn day_01(input: &Vec<i32>) {
+fn parto_one(input: &Vec<i32>) {
     let (res, _) = input
         .into_iter()
         .fold((0, None), |(res, prev), x| match prev {
@@ -21,7 +21,7 @@ fn day_01(input: &Vec<i32>) {
     println!("Part one: {}", res);
 }
 
-fn day_02(input: &Vec<i32>) {
+fn part_two(input: &Vec<i32>) {
     let mut res = 0;
     for i in 1..(input.len() - 2) {
         let prev = input[i - 1] + input[i] + input[i + 1];

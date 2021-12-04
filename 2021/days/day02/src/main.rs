@@ -2,11 +2,11 @@ fn main() {
     let input = include_str!("input.txt");
     let input: Vec<&str> = input.split("\n").filter(|x| *x != "").collect();
 
-    day_01(&input);
-    day_02(&input);
+    part_one(&input);
+    part_two(&input);
 }
 
-fn day_01(input: &Vec<&str>) {
+fn part_one(input: &Vec<&str>) {
     let (x, depth) = input.into_iter().fold((0, 0), |(x, depth), command| {
         let parts: Vec<&str> = command.split_ascii_whitespace().collect();
 
@@ -23,7 +23,7 @@ fn day_01(input: &Vec<&str>) {
     println!("Part one: {}", x * depth);
 }
 
-fn day_02(input: &Vec<&str>) {
+fn part_two(input: &Vec<&str>) {
     let (x, depth, _) = input
         .into_iter()
         .fold((0, 0, 0), |(x, depth, aim), command| {
