@@ -4,7 +4,7 @@ use std::time::Duration;
 
 use clap::{Parser, Subcommand};
 
-use advent_of_code_2022::{print_solution, solution::*, Solver};
+use advent_of_code_2022::{solution::*, PrintSolver};
 
 #[derive(Parser, Debug)]
 #[command(name = "AoC solution")]
@@ -34,7 +34,7 @@ fn main() {
     for day in days {
         match get_solver(day) {
             Ok(Some(solver)) => {
-                let elapsed = print_solution(solver);
+                let elapsed = solver.print_solution();
                 total_elapsed += elapsed;
             }
             Ok(None) => println!("Day {:0>2}: Not implemented!", day),
@@ -45,8 +45,8 @@ fn main() {
     }
 
     println!(
-        "\n------------------------\nTotal time elapsed: {}ms",
-        total_elapsed.as_millis()
+        "\n------------------------\nTotal time elapsed: {:.2}ms",
+        total_elapsed.as_micros() as f64 / 1000.0
     );
 }
 
@@ -54,10 +54,10 @@ fn main() {
 struct InvalidDayError(u8);
 
 // Gets the solver for the specified day.
-fn get_solver(day: u8) -> Result<Option<impl Solver>, InvalidDayError> {
+fn get_solver(day: u8) -> Result<Option<Box<dyn PrintSolver>>, InvalidDayError> {
     match day {
-        1 => Ok(Some(day_01::Solution)),
-        2 => Ok(None),
+        1 => Ok(Some(Box::new(day_01::Solution))),
+        2 => Ok(Some(Box::new(day_02::Solution))),
         3 => Ok(None),
         4 => Ok(None),
         5 => Ok(None),

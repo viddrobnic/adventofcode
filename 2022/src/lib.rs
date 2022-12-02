@@ -101,33 +101,47 @@ pub trait Solver {
     }
 }
 
-/// Prints the solution that the solver solves to the stdout.
+/// A solver that can print the solution to the stdout.
 ///
-/// The function reads the input from the `inputs` directory.
+/// Type contains a blanket implementation for the `Solver`.
+/// This way we remove associated types from the solver
+/// and can have a function with signature
+/// `fn get_solver(day: u8) -> Box<dyn PrintSolver>`
+pub trait PrintSolver {
+    /// Solve the problem and write the solution to the stdout.
+    ///
+    /// Returns the time needed to solve the problem.
+    fn print_solution(&self) -> Duration;
+}
+
+/// Blanket implementation of the `PrintSolver` for `Solver`.
+///
+/// It reads the input from the `inputs` directory.
 /// It expects the inputs file to be named as `day_XX.txt`.
-/// Function also measures the time it took to solve the problem and returns the duration.
-pub fn print_solution(solver: impl Solver) -> Duration {
-    let day = solver.get_day();
-    let input_path = format!("inputs/day_{:0>2}.txt", day);
+impl<T: Solver> PrintSolver for T {
+    fn print_solution(&self) -> Duration {
+        let day = self.get_day();
+        let input_path = format!("inputs/day_{:0>2}.txt", day);
 
-    let now = Instant::now();
-    let solution = solver.solve(&input_path);
-    let elapsed_time = now.elapsed();
+        let now = Instant::now();
+        let solution = self.solve(&input_path);
+        let elapsed_time = now.elapsed();
 
-    match solution {
-        Ok((part_one, part_two)) => {
-            println!(
-                "Day {:0>2} [{}ms]:\n\tPart one: {}\n\tPart two: {}",
-                day,
-                elapsed_time.as_millis(),
-                part_one,
-                part_two
-            );
+        match solution {
+            Ok((part_one, part_two)) => {
+                println!(
+                    "Day {:0>2} [{:.2}ms]:\n\tPart one: {}\n\tPart two: {}",
+                    day,
+                    elapsed_time.as_micros() as f64 / 1000.0,
+                    part_one,
+                    part_two
+                );
+            }
+            Err(err) => {
+                println!("Day {:0>2}:\n\tFailed to solve: {}", day, err);
+            }
         }
-        Err(err) => {
-            println!("Day {:0>2}:\n\tFailed to solve: {}", day, err);
-        }
+
+        elapsed_time
     }
-
-    elapsed_time
 }
