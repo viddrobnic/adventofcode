@@ -33,3 +33,30 @@ way more complicated than they need to be. They are also way more commented than
 | Day 23 | ??                  |  ❄️  |
 | Day 24 | ??                  |  ❄️  |
 | Day 25 | ??                  |  ❄️  |
+
+## Running
+
+Program can be run with `cargo run`. There are two options:
+
+- `cargo run all` runs all days
+- `cargo run days x` run only specified days. You can specify more than one day by separating numbers with space.
+
+The program expects the problem inputs to be located at `inputs/day_XX.txt`.
+
+## Project structure
+
+Project is structured into bin and lib part. The bin part is contained in the `main.rs` and handles parsing the CLI
+input and running the solution.
+
+The library part is the contains solutions to the problems. Library defines a trait `Solver` that all
+solutions implement. Types implementing `Solver` define their input and output types and implement the solving of both
+parts of the problem. This way parsing the input is lifted out from solving the problem, which makes error handling
+better, as described [here](https://mmapped.blog/posts/12-rust-error-handling.html#lift-input-validation).
+
+Library also defines and implements `PrintSolver` for all `Solvers`s. `PrintSolver` handles reading the input from the
+file, solving the problem and writing the solution to the stdout. It also handles benchmarking of the solution.
+
+More implementation details are described in rust docs, which can built and opened with
+```bash
+cargo doc --open
+```
