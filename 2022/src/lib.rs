@@ -29,6 +29,18 @@ pub enum SolverError {
     InvalidInput,
 }
 
+/// Output of the solution.
+///
+/// Includes solutions of the both parts of the problem
+/// and duration that each part took to solve.  
+pub struct SolverOutput<T> {
+    part_one: T,
+    part_two: T,
+    part_one_duration: Duration,
+    part_two_duration: Duration,
+    input_parsing_duration: Duration,
+}
+
 /// Defines a type that can solve a problem for a single day.
 ///
 /// The solver type needs to implement solving of part one and part two. After that `solve`
@@ -86,18 +98,26 @@ pub trait Solver {
     /// Solves both parts of the problem and returns the solutions.
     ///
     /// The function first reads and parses the input from the file located at `input_path`.
-    /// Returns a pair of part one and part two solutions.
-    fn solve(&self, input_path: &str) -> Result<(Self::Output, Self::Output), SolverError> {
+    /// Durations of solving the problem do not include reading the input from the file.
+    fn solve(&self, input_path: &str) -> Result<SolverOutput<Self::Output>, SolverError> {
         let mut file = File::open(input_path)?;
         let mut contents = String::new();
         file.read_to_string(&mut contents)?;
 
-        let input = Self::Input::from_str(&contents).map_err(|_| SolverError::InvalidInput)?;
+        let (input, input_parsing_duration) =
+            time_fn(|| Self::Input::from_str(&contents).map_err(|_| SolverError::InvalidInput));
+        let input = input?;
 
-        let part_one = self.part_one(&input);
-        let part_two = self.part_two(&input);
+        let (part_one, part_one_duration) = time_fn(|| self.part_one(&input));
+        let (part_two, part_two_duration) = time_fn(|| self.part_two(&input));
 
-        Ok((part_one, part_two))
+        Ok(SolverOutput {
+            part_one,
+            part_two,
+            part_one_duration,
+            part_two_duration,
+            input_parsing_duration,
+        })
     }
 }
 
@@ -123,18 +143,22 @@ impl<T: Solver> PrintSolver for T {
         let day = self.get_day();
         let input_path = format!("inputs/day_{:0>2}.txt", day);
 
-        let now = Instant::now();
-        let solution = self.solve(&input_path);
-        let elapsed_time = now.elapsed();
+        let mut elapsed = Duration::from_secs(0);
 
-        match solution {
-            Ok((part_one, part_two)) => {
+        match self.solve(&input_path) {
+            Ok(solution) => {
+                elapsed = solution.input_parsing_duration
+                    + solution.part_one_duration
+                    + solution.part_two_duration;
                 println!(
-                    "Day {:0>2} [{:.2}ms]:\n\tPart one: {}\n\tPart two: {}",
+                    "Day {:0>2} [{:.2}ms]:\n\tInput parsing: {:.2}ms\n\tPart one [{:.2}ms]: {}\n\tPart two [{:.2}ms]: {}",
                     day,
-                    elapsed_time.as_micros() as f64 / 1000.0,
-                    part_one,
-                    part_two
+                    duration_to_millis(&elapsed),
+                    duration_to_millis(&solution.input_parsing_duration),
+                    duration_to_millis(&solution.part_one_duration),
+                    solution.part_one,
+                    duration_to_millis(&solution.part_two_duration),
+                    solution.part_two
                 );
             }
             Err(err) => {
@@ -142,6 +166,24 @@ impl<T: Solver> PrintSolver for T {
             }
         }
 
-        elapsed_time
+        elapsed
     }
+}
+
+// Helper function that times how long the function `func` ran.
+fn time_fn<F, T>(func: F) -> (T, Duration)
+where
+    F: Fn() -> T,
+{
+    let now = Instant::now();
+    let out = func();
+    let duration = now.elapsed();
+
+    (out, duration)
+}
+
+// Helper function that returns a float representation of duration in millis
+// with additional decimal places
+fn duration_to_millis(dur: &Duration) -> f64 {
+    dur.as_micros() as f64 / 1000.0
 }
