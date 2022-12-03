@@ -6,33 +6,33 @@ way more complicated than they need to be. They are also way more commented than
 
 ## Progress
 
-|  Day   | Name                | Rust |
-|:------:|:--------------------|:----:|
-| Day 1  | Calorie Counting    |  🎄  |
-| Day 2  | Rock Paper Scissors |  🎄  |
-| Day 3  | ??                  |  ❄️  |
-| Day 4  | ??                  |  ❄️  |
-| Day 5  | ??                  |  ❄️  |
-| Day 6  | ??                  |  ❄️  |
-| Day 7  | ??                  |  ❄️  |
-| Day 8  | ??                  |  ❄️  |
-| Day 9  | ??                  |  ❄️  |
-| Day 10 | ??                  |  ❄️  |
-| Day 11 | ??                  |  ❄️  |
-| Day 12 | ??                  |  ❄️  |
-| Day 13 | ??                  |  ❄️  |
-| Day 14 | ??                  |  ❄️  |
-| Day 15 | ??                  |  ❄️  |
-| Day 16 | ??                  |  ❄️  |
-| Day 17 | ??                  |  ❄️  |
-| Day 18 | ??                  |  ❄️  |
-| Day 19 | ??                  |  ❄️  |
-| Day 20 | ??                  |  ❄️  |
-| Day 21 | ??                  |  ❄️  |
-| Day 22 | ??                  |  ❄️  |
-| Day 23 | ??                  |  ❄️  |
-| Day 24 | ??                  |  ❄️  |
-| Day 25 | ??                  |  ❄️  |
+|  Day   | Name                    | Rust |
+|:------:|:------------------------|:----:|
+| Day 1  | Calorie Counting        |  🎄  |
+| Day 2  | Rock Paper Scissors     |  🎄  |
+| Day 3  | Rucksack Reorganization |  🎄  |
+| Day 4  | ??                      |  ❄️  |
+| Day 5  | ??                      |  ❄️  |
+| Day 6  | ??                      |  ❄️  |
+| Day 7  | ??                      |  ❄️  |
+| Day 8  | ??                      |  ❄️  |
+| Day 9  | ??                      |  ❄️  |
+| Day 10 | ??                      |  ❄️  |
+| Day 11 | ??                      |  ❄️  |
+| Day 12 | ??                      |  ❄️  |
+| Day 13 | ??                      |  ❄️  |
+| Day 14 | ??                      |  ❄️  |
+| Day 15 | ??                      |  ❄️  |
+| Day 16 | ??                      |  ❄️  |
+| Day 17 | ??                      |  ❄️  |
+| Day 18 | ??                      |  ❄️  |
+| Day 19 | ??                      |  ❄️  |
+| Day 20 | ??                      |  ❄️  |
+| Day 21 | ??                      |  ❄️  |
+| Day 22 | ??                      |  ❄️  |
+| Day 23 | ??                      |  ❄️  |
+| Day 24 | ??                      |  ❄️  |
+| Day 25 | ??                      |  ❄️  |
 
 ## Running
 
@@ -57,6 +57,7 @@ Library also defines and implements `PrintSolver` for all `Solvers`s. `PrintSolv
 file, solving the problem and writing the solution to the stdout. It also handles benchmarking of the solution.
 
 More implementation details are described in rust docs, which can built and opened with
+
 ```bash
 cargo doc --open
 ```

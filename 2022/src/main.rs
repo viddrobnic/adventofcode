@@ -58,7 +58,7 @@ fn get_solver(day: u8) -> Result<Option<Box<dyn PrintSolver>>, InvalidDayError> 
     match day {
         1 => Ok(Some(Box::new(day_01::Solution))),
         2 => Ok(Some(Box::new(day_02::Solution))),
-        3 => Ok(None),
+        3 => Ok(Some(Box::new(day_03::Solution))),
         4 => Ok(None),
         5 => Ok(None),
         6 => Ok(None),

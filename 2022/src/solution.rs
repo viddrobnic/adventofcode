@@ -3,3 +3,4 @@
 //! Each solution is contained in its own module.
 pub mod day_01;
 pub mod day_02;
+pub mod day_03;
