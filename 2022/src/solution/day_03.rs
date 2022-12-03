@@ -89,54 +89,49 @@ impl Solver for Solution {
     }
 
     fn part_one(&self, input: &Self::Input) -> Self::Output {
-        // Using fold we sum up all the priorities.
-        input.0.iter().fold(0, |acc, elt: &Rucksack| {
-            // For each item we get the intersection between first and second compartment.
-            // After that we get the priority of the element in the intersection using another fold.
-            // There should be only one item in the intersection, but it works even for multiple items.
-            // We return the sum of the current accumulator and the priority of the intersection
-            // between both compartments.
-            acc + elt
-                .first_compartment
-                .intersection(&elt.second_compartment)
-                .fold(0, |acc, item: &Item| acc + item.priority())
-        })
+        input
+            .0
+            .iter()
+            .map(|rucksack: &Rucksack| {
+                // Map the rucksack into sum of the priorities of the items in the
+                // intersection between both compartments.
+
+                // First we calculate the intersection between both compartments.
+                let intersection = rucksack
+                    .first_compartment
+                    .intersection(&rucksack.second_compartment);
+
+                // We map the items in the intersection into their priorities
+                // and sum them up.
+                intersection
+                    .map(|item: &Item| item.priority())
+                    .sum::<Self::Output>()
+            })
+            .sum() // Return the sum of all priorities
     }
 
     fn part_two(&self, input: &Self::Input) -> Self::Output {
-        let input = &input.0;
-        // Group the rucksacks into groups of three. We do that by combining zip, skip and step_by.
-        // This result into an iterator over (Rucksack, (Rucksack, Rucksack)).
-        let groups = input.iter().step_by(3).zip(
-            input
-                .iter()
-                .skip(1)
-                .step_by(3)
-                .zip(input.iter().skip(2).step_by(3)),
-        );
+        input
+            .0
+            .chunks(3) // Construct an iterator going through groups
+            .map(|rucksacks| {
+                // Get the intersection of the group.
+                let intersection = rucksacks
+                    .iter()
+                    .map(|rucksack: &Rucksack| rucksack.items()) // Map rucksack to items
+                    .reduce(|acc, items| {
+                        // Using reduce get the intersection of the group items
+                        acc.intersection(&items).map(|item| *item).collect()
+                    })
+                    .unwrap(); // We can safely unwrap the Option that reduce gives, since we know, there is at least one group
 
-        // Using fold again we sum up all the priorities.
-        groups.fold(
-            0,
-            |acc, (r1, (r2, r3)): (&Rucksack, (&Rucksack, &Rucksack))| {
-                // Get items for all rucksacks.
-                let r1 = r1.items();
-                let r2 = r2.items();
-                let r3 = r3.items();
-
-                // Calculate the intersection of all rucksacks. We need to use an additional map
-                // to convert &&Item into &Item.
-                // Like in part_one, we get the priority of the item in the intersection
-                // using another fold.
-                // We return the sum of the current accumulator and the priority of the intersection
-                // between all three rucksacks in a group.
-                let intersection: HashSet<_> = r1.intersection(&r2).map(|item| *item).collect();
-                acc + intersection
-                    .intersection(&r3)
-                    .map(|item| *item)
-                    .fold(0, |acc, item: &Item| acc + item.priority())
-            },
-        )
+                // Map items in the intersection to priorities and sum them up
+                intersection
+                    .iter()
+                    .map(|item: &&Item| item.priority())
+                    .sum::<Self::Output>()
+            })
+            .sum() // Return the sum of the priorities.
     }
 }
 
