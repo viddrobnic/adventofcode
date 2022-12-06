@@ -4,6 +4,8 @@
 //! but to practice writing clean code in Rust. Therefore the crate contains a lot more
 //! abstraction, comments and tests than needed to solve the advent of code.
 
+extern crate core;
+
 use std::fmt::{Debug, Display};
 use std::fs::File;
 use std::io::Read;
