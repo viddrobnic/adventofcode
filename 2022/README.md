@@ -14,7 +14,7 @@ way more complicated than they need to be. They are also way more commented than
 | Day 4  | Camp Cleanup            |  🎄  |
 | Day 5  | Supply Stacks           |  🎄  |
 | Day 6  | Tuning Trouble          |  🎄  |
-| Day 7  | ??                      |  ❄️  |
+| Day 7  | No Space Left On Device |  🎄  |
 | Day 8  | ??                      |  ❄️  |
 | Day 9  | ??                      |  ❄️  |
 | Day 10 | ??                      |  ❄️  |
