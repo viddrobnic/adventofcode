@@ -137,6 +137,7 @@ impl FromStr for Input {
     }
 }
 
+/// Solution for day 9.
 pub struct Solution;
 
 impl Solver for Solution {
