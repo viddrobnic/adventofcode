@@ -27,7 +27,7 @@ impl Shape {
 // Represents the outcome of a single round.
 #[derive(PartialEq, Debug)]
 enum Outcome {
-    Loose,
+    Lose,
     Draw,
     Win,
 }
@@ -36,7 +36,7 @@ impl Outcome {
     // Represents  the score associated with an outcome.
     fn score(&self) -> i32 {
         match self {
-            Outcome::Loose => 0,
+            Outcome::Lose => 0,
             Outcome::Draw => 3,
             Outcome::Win => 6,
         }
@@ -59,12 +59,12 @@ impl Round {
         match (&self.opponent, &self.me.0) {
             (Shape::Rock, Shape::Rock) => Outcome::Draw,
             (Shape::Rock, Shape::Paper) => Outcome::Win,
-            (Shape::Rock, Shape::Scissors) => Outcome::Loose,
-            (Shape::Paper, Shape::Rock) => Outcome::Loose,
+            (Shape::Rock, Shape::Scissors) => Outcome::Lose,
+            (Shape::Paper, Shape::Rock) => Outcome::Lose,
             (Shape::Paper, Shape::Paper) => Outcome::Draw,
             (Shape::Paper, Shape::Scissors) => Outcome::Win,
             (Shape::Scissors, Shape::Rock) => Outcome::Win,
-            (Shape::Scissors, Shape::Paper) => Outcome::Loose,
+            (Shape::Scissors, Shape::Paper) => Outcome::Lose,
             (Shape::Scissors, Shape::Scissors) => Outcome::Draw,
         }
     }
@@ -72,13 +72,13 @@ impl Round {
     // Get shape from the outcome that I want and the shape that the opponent plays.
     fn shape(&self) -> Shape {
         match (&self.opponent, &self.me.1) {
-            (Shape::Rock, Outcome::Loose) => Shape::Scissors,
+            (Shape::Rock, Outcome::Lose) => Shape::Scissors,
             (Shape::Rock, Outcome::Draw) => Shape::Rock,
             (Shape::Rock, Outcome::Win) => Shape::Paper,
-            (Shape::Paper, Outcome::Loose) => Shape::Rock,
+            (Shape::Paper, Outcome::Lose) => Shape::Rock,
             (Shape::Paper, Outcome::Draw) => Shape::Paper,
             (Shape::Paper, Outcome::Win) => Shape::Scissors,
-            (Shape::Scissors, Outcome::Loose) => Shape::Paper,
+            (Shape::Scissors, Outcome::Lose) => Shape::Paper,
             (Shape::Scissors, Outcome::Draw) => Shape::Scissors,
             (Shape::Scissors, Outcome::Win) => Shape::Rock,
         }
@@ -126,7 +126,7 @@ impl FromStr for Input {
                 };
 
                 let me = match parts[1] {
-                    "X" => (Shape::Rock, Outcome::Loose),
+                    "X" => (Shape::Rock, Outcome::Lose),
                     "Y" => (Shape::Paper, Outcome::Draw),
                     "Z" => (Shape::Scissors, Outcome::Win),
                     shape => return Err(InputError::InvalidShape(shape.to_owned())),
@@ -187,12 +187,12 @@ mod tests {
                 },
                 Round {
                     opponent: Shape::Paper,
-                    me: (Shape::Rock, Outcome::Loose),
+                    me: (Shape::Rock, Outcome::Lose),
                 },
                 Round {
                     opponent: Shape::Scissors,
                     me: (Shape::Scissors, Outcome::Win),
-                }
+                },
             ])
         );
     }
