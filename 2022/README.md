@@ -21,7 +21,7 @@ way more complicated than they need to be. They are also way more commented than
 | Day 11 | Monkey in the Middle    |  🎄  |
 | Day 12 | Hill Climbing Algorithm |  🎄  |
 | Day 13 | Distress Signal         |  🎄  |
-| Day 14 | ??                      |  ❄️  |
+| Day 14 | Regolith Reservoir      |  🎄  |
 | Day 15 | ??                      |  ❄️  |
 | Day 16 | ??                      |  ❄️  |
 | Day 17 | ??                      |  ❄️  |
