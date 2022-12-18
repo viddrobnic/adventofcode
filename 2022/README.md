@@ -25,7 +25,7 @@ way more complicated than they need to be. They are also way more commented than
 | Day 15 | Beacon Exclusion Zone   |  🎄  |
 | Day 16 | Proboscidea Volcanium   |  🎄  |
 | Day 17 | Pyroclastic Flow        |  🎄  |
-| Day 18 | ??                      |  ❄️  |
+| Day 18 | Boiling Boulders        |  🎄  |
 | Day 19 | ??                      |  ❄️  |
 | Day 20 | ??                      |  ❄️  |
 | Day 21 | ??                      |  ❄️  |
