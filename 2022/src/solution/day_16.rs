@@ -294,7 +294,6 @@ impl Solver for Solution {
 
 #[cfg(test)]
 mod tests {
-    use std::collections::{HashMap, HashSet};
     use std::str::FromStr;
 
     use crate::solution::day_16::{Input, Solution};

@@ -24,7 +24,7 @@ way more complicated than they need to be. They are also way more commented than
 | Day 14 | Regolith Reservoir      |  🎄  |
 | Day 15 | Beacon Exclusion Zone   |  🎄  |
 | Day 16 | Proboscidea Volcanium   |  🎄  |
-| Day 17 | ??                      |  ❄️  |
+| Day 17 | Pyroclastic Flow        |  🎄  |
 | Day 18 | ??                      |  ❄️  |
 | Day 19 | ??                      |  ❄️  |
 | Day 20 | ??                      |  ❄️  |
