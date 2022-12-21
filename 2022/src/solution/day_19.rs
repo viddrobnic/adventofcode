@@ -329,11 +329,10 @@ impl Solver for Solution {
 
 #[cfg(test)]
 mod tests {
-    use std::collections::HashMap;
     use std::str::FromStr;
 
     use crate::solution::day_19::{
-        solve, Blueprint, ClayCost, GeodeCost, Input, ObsidianCost, OreCost, Solution,
+        Blueprint, ClayCost, GeodeCost, Input, ObsidianCost, OreCost, Solution,
     };
     use crate::Solver;
 

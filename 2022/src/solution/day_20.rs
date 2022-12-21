@@ -127,7 +127,6 @@ impl Solver for Solution {
 
 #[cfg(test)]
 mod tests {
-    use std::collections::LinkedList;
     use std::str::FromStr;
 
     use crate::solution::day_20::{move_number, Input, Number, Solution};
