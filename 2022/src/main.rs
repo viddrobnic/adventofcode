@@ -1,5 +1,3 @@
-extern crate core;
-
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
@@ -77,7 +75,7 @@ fn get_solver(day: u8) -> Result<Option<Box<dyn PrintSolver>>, InvalidDayError> 
         19 => Ok(Some(Box::new(day_19::Solution))),
         20 => Ok(Some(Box::new(day_20::Solution))),
         21 => Ok(Some(Box::new(day_21::Solution))),
-        22 => Ok(None),
+        22 => Ok(Some(Box::new(day_22::Solution))),
         23 => Ok(None),
         24 => Ok(None),
         25 => Ok(None),

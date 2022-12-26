@@ -29,7 +29,7 @@ way more complicated than they need to be. They are also way more commented than
 | Day 19 | Not Enough Minerals      |  🎄  |
 | Day 20 | Grove Positioning System |  🎄  |
 | Day 21 | Monkey Math              |  🎄  |
-| Day 22 | ??                       |  ❄️  |
+| Day 22 | Monkey Map               |  🎄  |
 | Day 23 | ??                       |  ❄️  |
 | Day 24 | ??                       |  ❄️  |
 | Day 25 | ??                       |  ❄️  |
