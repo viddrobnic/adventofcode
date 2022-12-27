@@ -32,7 +32,7 @@ way more complicated than they need to be. They are also way more commented than
 | Day 22 | Monkey Map               |  🎄  |
 | Day 23 | Unstable Diffusion       |  🎄  |
 | Day 24 | Blizzard Basin           |  🎄  |
-| Day 25 | ??                       |  ❄️  |
+| Day 25 | Full of Hot Air          |  🎄  |
 
 ## Running
 
