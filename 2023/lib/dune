@@ -1,3 +1,4 @@
 (library
  (name aoc)
- (libraries str))
+ (libraries str)
+)
