@@ -32,3 +32,13 @@ This year I have decided to write as many solutions as I can in OCaml.
 | Day 23 |                |  ❄️   |
 | Day 24 |                |  ❄️   |
 | Day 25 |                |  ❄️   |
+
+## Running
+
+Soultion for a day can be run with:
+
+```bash
+dune exec aoc <day>
+```
+
+The program expects the problem input to be located at `inputs/day_XX.txt`.
