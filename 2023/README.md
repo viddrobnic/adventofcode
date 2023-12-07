@@ -13,7 +13,7 @@ This year I have decided to write as many solutions as I can in OCaml.
 | Day 4  | Scratchcards                    |   🐫   |
 | Day 5  | If You Give A Seed A Fertilizer |   🐫   |
 | Day 6  | Wait For It                     |   🐫   |
-| Day 7  |                                 |  ❄️   |
+| Day 7  | Camel Cards                     |   🐫   |
 | Day 8  |                                 |  ❄️   |
 | Day 9  |                                 |  ❄️   |
 | Day 10 |                                 |  ❄️   |
