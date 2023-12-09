@@ -15,7 +15,7 @@ This year I have decided to write as many solutions as I can in OCaml.
 | Day 6  | Wait For It                     |   🐫   |
 | Day 7  | Camel Cards                     |   🐫   |
 | Day 8  | Haunted Wasteland               |   🐫   |
-| Day 9  |                                 |  ❄️   |
+| Day 9  | Mirage Maintenance              |   🐫   |
 | Day 10 |                                 |  ❄️   |
 | Day 11 |                                 |  ❄️   |
 | Day 12 |                                 |  ❄️   |
