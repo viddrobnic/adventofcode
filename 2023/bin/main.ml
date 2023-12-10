@@ -13,4 +13,5 @@ let () =
   | "7" -> Day07.run ()
   | "8" -> Day08.run ()
   | "9" -> Day09.run ()
+  | "10" -> Day10.run ()
   | _ -> failwith "Invalid day"
