@@ -17,7 +17,7 @@ This year I have decided to write as many solutions as I can in OCaml.
 | Day 8  | Haunted Wasteland               |   🐫   |
 | Day 9  | Mirage Maintenance              |   🐫   |
 | Day 10 | Pipe Maze                       |   🐫   |
-| Day 11 |                                 |  ❄️   |
+| Day 11 | Cosmic Expansion                |   🐫   |
 | Day 12 |                                 |  ❄️   |
 | Day 13 |                                 |  ❄️   |
 | Day 14 |                                 |  ❄️   |
