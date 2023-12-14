@@ -20,7 +20,7 @@ This year I have decided to write as many solutions as I can in OCaml.
 | Day 11 | Cosmic Expansion                |   🐫   |
 | Day 12 | Hot Springs                     |   🐫   |
 | Day 13 | Point of Incidence              |   🐫   |
-| Day 14 |                                 |  ❄️   |
+| Day 14 | Parabolic Reflector Dish        |   🐫   |
 | Day 15 |                                 |  ❄️   |
 | Day 16 |                                 |  ❄️   |
 | Day 17 |                                 |  ❄️   |
