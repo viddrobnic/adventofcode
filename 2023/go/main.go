@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/viddrobnic/adventofcode/2023/go/day17"
+	"github.com/viddrobnic/adventofcode/2023/go/day18"
 )
 
 func main() {
@@ -17,6 +18,8 @@ func main() {
 	switch day {
 	case "17":
 		day17.Solve()
+	case "18":
+		day18.Solve()
 	default:
 		fmt.Println("Day not implemented")
 	}

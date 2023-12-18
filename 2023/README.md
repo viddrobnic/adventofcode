@@ -24,7 +24,7 @@ This year I have decided to write as many solutions as I can in OCaml.
 | Day 15 | Lens Library                    |   🐫   | ❄️  |
 | Day 16 | The Floor Will Be Lava          |   🐫   | ❄️  |
 | Day 17 | Clumsy Crucible                 |  ❄️   |  🎄  |
-| Day 18 |                                 |  ❄️   | ❄️  |
+| Day 18 | Lavaduct Lagoon                 |  ❄️   |  🎄  |
 | Day 19 |                                 |  ❄️   | ❄️  |
 | Day 20 |                                 |  ❄️   | ❄️  |
 | Day 21 |                                 |  ❄️   | ❄️  |
