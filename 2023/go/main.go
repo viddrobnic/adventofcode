@@ -6,6 +6,7 @@ import (
 
 	"github.com/viddrobnic/adventofcode/2023/go/day17"
 	"github.com/viddrobnic/adventofcode/2023/go/day18"
+	"github.com/viddrobnic/adventofcode/2023/go/day19"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
 		day17.Solve()
 	case "18":
 		day18.Solve()
+	case "19":
+		day19.Solve()
 	default:
 		fmt.Println("Day not implemented")
 	}
