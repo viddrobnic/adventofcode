@@ -1,6 +1,6 @@
 # Advent of Code 2024
 
-This repository contains my solutions to the [2024's Advent of Code](https://adventofcode.com/2023).
+This repository contains my solutions to the [2024's Advent of Code](https://adventofcode.com/2024).
 This year I have decided to write as many solutions as I can in
 [my language](https://github.com/viddrobnic/aoc-lang).
 
@@ -9,7 +9,7 @@ This year I have decided to write as many solutions as I can in
 |  Day   | Name               | AoC |
 | :----: | :----------------- | :-: |
 | Day 1  | Historian Hysteria | 🎄  |
-| Day 2  | ???                | ❄️  |
+| Day 2  | Red-Nosed Reports  | 🎄  |
 | Day 3  | ???                | ❄️  |
 | Day 4  | ???                | ❄️  |
 | Day 5  | ???                | ❄️  |
