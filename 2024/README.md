@@ -10,7 +10,7 @@ This year I have decided to write as many solutions as I can in
 | :----: | :----------------- | :-: |
 | Day 1  | Historian Hysteria | 🎄  |
 | Day 2  | Red-Nosed Reports  | 🎄  |
-| Day 3  | ???                | ❄️  |
+| Day 3  | Mull It Over       | 🎄  |
 | Day 4  | ???                | ❄️  |
 | Day 5  | ???                | ❄️  |
 | Day 6  | ???                | ❄️  |

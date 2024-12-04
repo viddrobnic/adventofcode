@@ -1,0 +1,130 @@
+data = ""
+while (true) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+
+    data = data + line
+}
+
+parse_int = fn(data, start, end) {
+    first = 0
+    for (i = start; true; i = i + 1) {
+        if (i >= len(data)) {
+            return [false, len(data)]
+        }
+
+        if (data[i] == end) {
+            break
+        }
+
+        n = int(data[i]) - int('0')
+        if (n < 0 | n > 9) {
+            return [false, i + 1]
+        }
+
+        first = first * 10 + n
+    }
+
+    return [true, first, i+1]
+}
+
+parse_mul = fn (data, start) {
+    if (data[start] != 'm') {
+        return [false, start + 1]
+    }
+
+    if (data[start + 1] != 'u') {
+        return [false, start + 2]
+    }
+
+    if (data[start + 2] != 'l') {
+        return [false, start + 3]
+    }
+
+    if (data[start + 3] != '(') {
+        return [false, start + 4]
+    }
+    
+    res = parse_int(data, start + 4, ',')
+    if (!res[0]) {
+        return res
+    }
+
+    [ok, first, start] = res
+
+    res = parse_int(data, start, ')')
+    if (!res[0]) {
+        return res
+    }
+
+    [ok, second, start] = res
+
+    return [true, first, second, start]
+}
+
+i = 0
+sum = 0
+while (i < len(data)) {
+    res = parse_mul(data, i)
+    if (res[0]) {
+        sum = sum + res[1] * res[2]
+        i = res[3]
+    } else {
+        i = res[1]
+    }
+}
+print("Part one: " + str(sum))
+
+//--------
+// Part two
+//--------
+
+parse_str = fn(data, start, string) {
+    for (i = 0; i < len(string); i = i + 1) {
+        if (start + i >= len(data)) {
+            return [false, len(data)]
+        }
+
+        if (data[start + i] != string[i]) {
+            return [false, start + i + 1]
+        }
+    }
+
+    return [true, start + len(string)]
+}
+
+
+i = 0
+sum = 0
+mul_enabled = true
+while (i < len(data)) {
+    res = parse_str(data, i, "do()")
+    if (res[0]) {
+        mul_enabled = true
+        i = res[1]
+        continue
+    }
+
+    res = parse_str(data, i, "don't()") 
+    if (res[0]) {
+        mul_enabled = false
+        i = res[1]
+        continue
+    }
+
+    res = parse_mul(data, i)
+    if (res[0]) {
+        if (mul_enabled) {
+            sum = sum + res[1] * res[2]
+        }
+
+        i = res[3]
+        continue
+    } 
+
+    i = i + 1
+}
+
+print("Part two: " + str(sum))
