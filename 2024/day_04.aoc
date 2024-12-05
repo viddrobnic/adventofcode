@@ -1,0 +1,91 @@
+data = []
+while (true) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+
+    push(data, line)
+}
+
+is_safe = fn(x, y) {
+    return x >= 0 & x < len(data[0]) & y >= 0 & y < len(data)
+}
+
+word = "XMAS"
+
+res = 0
+for (y = 0; y < len(data); y = y + 1) {
+    for (x = 0; x < len(data[0]); x = x + 1) {
+        for (dx = -1; dx <= 1; dx = dx + 1) {
+            for (dy = -1; dy <= 1; dy = dy + 1) {
+                if (dx == 0 & dy == 0) {
+                    continue
+                }
+
+                found = true
+                [x2, y2] = [x, y]
+                for (idx = 0; idx < len(word); idx = idx + 1) {
+                    if (data[y2][x2] != word[idx]) {
+                        found = false
+                        break
+                    }
+
+                    if (idx == len(word) - 1) {
+                        break
+                    }
+
+                    [x2, y2] = [x2 + dx, y2 + dy]
+                    if (!is_safe(x2, y2)) {
+                        found = false
+                        break
+                    }
+                }
+
+                if (found) {
+                    res = res + 1
+                }
+            }
+        }
+    }
+}
+print("Part one: " + str(res))
+
+// --------
+// Part two
+// --------
+
+res = 0
+for (y = 0; y < len(data); y = y + 1) {
+    for (x = 0; x < len(data[0]); x = x + 1) {
+        if (data[y][x] != 'A') {
+            continue
+        }
+
+        [x1, y1] = [x - 1, y + 1]
+        [x2, y2] = [x + 1, y - 1]
+
+        [x3, y3] = [x - 1, y - 1]
+        [x4, y4] = [x + 1, y + 1]
+
+        if (!is_safe(x1, y1) | !is_safe(x2, y2) | !is_safe(x3, y3) | !is_safe(x4, y4)) {
+            continue
+        }
+
+        first = false
+        if ((data[y1][x1] == 'M' & data[y2][x2] == 'S') | (data[y1][x1] == 'S' & data[y2][x2] == 'M')) {
+            first = true
+        }
+
+        second = false
+        if ((data[y3][x3] == 'M' & data[y4][x4] == 'S') | (data[y3][x3] == 'S' & data[y4][x4] == 'M')) {
+            second = true
+        }
+
+        if (first & second) {
+            res = res + 1
+        }
+    }
+}
+
+print("Part two: " + str(res))
