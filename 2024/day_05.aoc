@@ -1,0 +1,93 @@
+rules = {}
+updates = []
+parsing_rules = true
+while (true) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+
+    if (line == "") {
+        parsing_rules = false
+        continue
+    }
+
+    if (parsing_rules) {
+        [before, after] = split(line, "|")        
+        existing = rules[int(after)]
+        if (is_null(existing)) {
+            rules[int(after)] = [int(before)]
+        } else {
+            push(existing, int(before))
+        }
+    } else {
+        values = split(line, ",")
+        for (i = 0; i < len(values); i = i + 1) {
+            values[i] = int(values[i])
+        }
+
+        push(updates, values)
+    }
+}
+
+is_correct = fn(update) {
+    for (i = 1; i < len(update); i = i + 1) {
+        ui = update[i]
+
+        for (j = 0; j < i; j = j + 1) {
+            vals = rules[update[j]]            
+            if (is_null(vals)) {
+                continue
+            }
+
+            for (k = 0; k < len(vals); k = k + 1) {
+                if (vals[k] == ui) {
+                    return [false, i, j]
+                }
+            }
+        }
+    }
+
+    return [true]
+}
+
+res = 0
+for (i = 0; i < len(updates); i = i + 1) {
+    if (is_correct(updates[i])[0]) {
+        l = len(updates[i])
+        res = res + updates[i][l/2]
+    }
+}
+
+print("Part one: " + str(res))
+
+// --------
+// Part two
+// --------
+
+res = 0
+
+for (i = 0; i < len(updates); i = i + 1) {
+    update = updates[i]
+
+    cor = is_correct(update)
+    if (cor[0]) {
+        continue
+    }
+    
+    while (true) {
+        temp = update[cor[1]]
+        update[cor[1]] = update[cor[2]] 
+        update[cor[2]] = temp
+
+        cor = is_correct(update)
+        if (cor[0]) {
+            break
+        }
+    }
+
+    l = len(update)
+    res = res + update[l/2]
+}
+
+print("Part two: " + str(res))
