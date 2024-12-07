@@ -1,0 +1,142 @@
+map = []
+init_pos = {}
+init_dir = {}
+
+for (y = 0; true; y = y + 1) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+
+    row = []
+    for (i = 0; i < len(line); i = i + 1) {
+        if (line[i] == '.') {
+            push(row, false)
+        } else if (line[i] == '#') {
+            push(row, true)
+        } else if (line[i] == '^') {
+            push(row, false)
+
+            init_pos.x = i
+            init_pos.y = y
+            
+            init_dir.x = 0
+            init_dir.y = -1
+        } 
+    }
+    push(map, row)
+}
+
+init_visited = fn() {
+    visited = []
+    for (y = 0; y < len(map); y = y + 1) {
+        row = []
+
+        for (x = 0; x < len(map[0]); x = x + 1) {
+            push(row, null)
+        }
+
+        push(visited, row)
+    }
+    visited[init_pos.y][init_pos.x] = {
+        "x": init_dir.x,
+        "y": init_dir.y,
+    }
+
+    return visited
+}
+
+is_safe = fn(x, y) {
+    return !(x < 0 | x >= len(map[0]) | y < 0 | y >= len(map))
+}
+
+run = fn() {
+    pos = {
+        "x": init_pos.x,
+        "y": init_pos.y,
+    }
+
+    dir = {
+        "x": init_dir.x,
+        "y": init_dir.y,
+    }
+
+    visited = init_visited()
+    is_cycle = false
+
+    while (true) {
+        x2 = pos.x + dir.x
+        y2 = pos.y + dir.y
+        if (!is_safe(x2, y2)) {
+            break
+        }
+
+        v = visited[y2][x2]
+        if (!is_null(v)) {
+            if (v.x == dir.x & v.y == dir.y) {
+                is_cycle = true
+                break
+            }
+        }
+
+        if (!map[y2][x2]) {
+            [pos.x, pos.y] = [x2, y2]
+            if (is_null(v)) {
+                visited[y2][x2] = {
+                    "x": dir.x,
+                    "y": dir.y,
+                }
+            } else {
+                v.x = dir.x
+                v.y = dir.y
+            }
+            continue
+        }
+
+        [dir.x, dir.y] = [-dir.y, dir.x]
+    }
+
+    return [visited, is_cycle]
+}
+
+[visited, is_cycle] = run()
+
+res = 0
+for (y = 0; y < len(visited); y = y + 1) {
+    for (x = 0; x < len(visited[0]); x = x + 1) {
+        if (visited[y][x]) {
+            res = res + 1
+        }
+    }
+}
+
+print("Part one: " + str(res))
+
+
+// --------
+// Part two
+// --------
+// Brute force solution... I don't have time to come up with a better one...
+res = 0
+for (y = 0; y < len(map); y = y + 1) {
+    print(y)
+    for (x = 0; x < len(map[0]); x = x + 1) {
+        if (map[y][x]) {
+            continue
+        }
+
+        if (x == init_pos.x & y == init_pos.y) {
+            continue
+        }
+
+        map[y][x] = true
+        [visited, is_cycle] = run()
+        map[y][x] = false
+
+        if (is_cycle) {
+            res = res + 1
+        }
+    }
+}
+
+print("Part two: " + str(res))
