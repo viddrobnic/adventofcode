@@ -1,0 +1,64 @@
+data = []
+while (true) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+
+    [sum, elts] = split(line, ": ")
+    elts = split(elts, " ")
+    for (i = 0; i < len(elts); i = i + 1) {
+        elts[i] = int(elts[i])
+    }
+
+    push(data, [int(sum), elts])
+}
+
+check_valid = fn(acc, idx, elts, target, concat) {
+    if (idx == len(elts)) {
+        return acc == target
+    }
+
+    sum = acc + elts[idx]
+    valid = check_valid(sum, idx + 1, elts, target, concat)
+    if (valid) {
+        return true
+    }
+
+    valid = check_valid(acc * elts[idx], idx + 1, elts, target, concat)
+    if (valid) {
+        return true
+    }
+
+    if (concat) {
+        return check_valid(int(str(acc) + str(elts[idx])), idx + 1, elts, target, concat)
+    } else {
+        return false
+    }
+}
+
+res = 0
+for (i = 0; i < len(data); i = i + 1) {
+    [target, elts] = data[i]
+    valid = check_valid(elts[0], 1, elts, target, false)
+    if (valid) {
+        res = res + target
+    }
+}
+
+print("Part one: " + str(res))
+
+// -------
+// Part two
+// -------
+
+res = 0
+for (i = 0; i < len(data); i = i + 1) {
+    [target, elts] = data[i]
+    valid = check_valid(elts[0], 1, elts, target, true)
+    if (valid) {
+        res = res + target
+    }
+}
+
+print("Part two: " + str(res))
