@@ -1,0 +1,114 @@
+width = 0
+height = 0
+
+data = {}
+keys = []
+
+
+while (true) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+    
+    width = len(line)
+    height = height + 1
+
+    for (i = 0; i < len(line); i = i + 1) {
+        ch = line[i]
+        if (ch == '.') {
+            continue
+        }
+
+        coords = data[ch]
+        coord = {
+            "x": i,
+            "y": height - 1,
+        }
+        if (is_null(coords)) {
+            data[ch] = [coord]
+            push(keys, ch)
+        } else {
+            push(coords, coord)
+        }
+    }
+}
+
+visited_one = []
+visited_two = []
+for (i = 0; i < width * height; i = i + 1) {
+    push(visited_one, false)
+    push(visited_two, false)
+}
+
+is_safe = fn(x, y) {
+    return x >= 0 & x < width & y >= 0 & y < height
+}
+
+set_visited = fn(a1, a2, visited, once) {
+    dx = a1.x - a2.x
+    dy = a1.y - a2.y
+
+    x1 = a1.x + dx
+    y1 = a1.y + dy
+
+    while (is_safe(x1, y1)) {
+        visited[y1 * width + x1] = true
+        if (once) {
+            break
+        }
+
+        x1 = x1 + dx
+        y1 = y1 + dy
+    }
+
+    x2 = a2.x - dx
+    y2 = a2.y - dy
+
+
+    while (is_safe(x2, y2)) {
+        visited[y2 * width + x2] = true
+        if (once) {
+            break
+        }
+
+        x2 = x2 - dx
+        y2 = y2 - dy
+    }
+
+    if (!once) {
+        visited[a1.y * width + a1.x] = true
+        visited[a2.y * width + a2.x] = true
+    }
+}
+
+for (i = 0; i < len(keys); i = i + 1) {
+    key = keys[i]
+    antennas = data[key]
+    if (len(antennas) < 2) {
+        continue
+    }
+
+    for (j = 1; j < len(antennas); j = j + 1) {
+        for (k = 0; k < j; k = k + 1) {
+            a1 = antennas[j]
+            a2 = antennas[k]
+            set_visited(a1, a2, visited_one, true)
+            set_visited(a1, a2, visited_two, false)
+        }
+    }
+}
+
+res_one = 0
+res_two = 0
+for (i = 0; i < len(visited_one); i = i + 1) {
+    if (visited_one[i]) {
+        res_one = res_one + 1
+    }
+    if (visited_two[i]) {
+        res_two = res_two + 1
+    }
+}
+
+print ("Part one: " + str(res_one))
+print ("Part two: " + str(res_two))
