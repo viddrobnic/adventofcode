@@ -6,33 +6,33 @@ This year I have decided to write as many solutions as I can in
 
 ## Progress
 
-|  Day   | Name               | AoC |
-| :----: | :----------------- | :-: |
-| Day 1  | Historian Hysteria | 🎄  |
-| Day 2  | Red-Nosed Reports  | 🎄  |
-| Day 3  | Mull It Over       | 🎄  |
-| Day 4  | Ceres Search       | 🎄  |
-| Day 5  | Print Queue        | 🎄  |
-| Day 6  | ???                | ❄️  |
-| Day 7  | ???                | ❄️  |
-| Day 8  | ???                | ❄️  |
-| Day 9  | ???                | ❄️  |
-| Day 10 | ???                | ❄️  |
-| Day 11 | ???                | ❄️  |
-| Day 12 | ???                | ❄️  |
-| Day 13 | ???                | ❄️  |
-| Day 14 | ???                | ❄️  |
-| Day 15 | ???                | ❄️  |
-| Day 16 | ???                | ❄️  |
-| Day 17 | ???                | ❄️  |
-| Day 18 | ???                | ❄️  |
-| Day 19 | ???                | ❄️  |
-| Day 20 | ???                | ❄️  |
-| Day 21 | ???                | ❄️  |
-| Day 22 | ???                | ❄️  |
-| Day 23 | ???                | ❄️  |
-| Day 24 | ???                | ❄️  |
-| Day 25 | ???                | ❄️  |
+|  Day   | Name                  | AoC |
+| :----: | :-------------------- | :-: |
+| Day 1  | Historian Hysteria    | 🎄  |
+| Day 2  | Red-Nosed Reports     | 🎄  |
+| Day 3  | Mull It Over          | 🎄  |
+| Day 4  | Ceres Search          | 🎄  |
+| Day 5  | Print Queue           | 🎄  |
+| Day 6  | Guard Gallivant       | 🎄  |
+| Day 7  | Bridge Repair         | 🎄  |
+| Day 8  | Resonant Collinearity | 🎄  |
+| Day 9  | Disk Fragmenter       | 🎄  |
+| Day 10 | Hoof It               | 🎄  |
+| Day 11 | ???                   | ❄️  |
+| Day 12 | ???                   | ❄️  |
+| Day 13 | ???                   | ❄️  |
+| Day 14 | ???                   | ❄️  |
+| Day 15 | ???                   | ❄️  |
+| Day 16 | ???                   | ❄️  |
+| Day 17 | ???                   | ❄️  |
+| Day 18 | ???                   | ❄️  |
+| Day 19 | ???                   | ❄️  |
+| Day 20 | ???                   | ❄️  |
+| Day 21 | ???                   | ❄️  |
+| Day 22 | ???                   | ❄️  |
+| Day 23 | ???                   | ❄️  |
+| Day 24 | ???                   | ❄️  |
+| Day 25 | ???                   | ❄️  |
 
 ## Running
 

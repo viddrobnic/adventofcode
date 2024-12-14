@@ -1,0 +1,134 @@
+map = []
+while (true) {
+    line = input()
+    if (is_null(line)) {
+        break
+    }
+
+    line = split(line, "")
+    for (i = 0; i < len(line); i = i + 1) {
+        line[i] = int(line[i])
+    }
+    push(map, line)
+}
+
+get_neighbours = fn(x, y) {
+    ds = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+    res = []
+    
+    for (i = 0; i < len(ds); i = i + 1) {
+        [dx, dy] = ds[i]
+        x2 = x + dx
+        y2 = y + dy
+
+        if (x2 < 0 | x2 >= len(map[0]) | y2 < 0 | y2 >= len(map)) {
+            continue
+        }
+
+        if (map[y2][x2] - map[y][x] != 1) {
+            continue
+        }
+
+        push(res, [x2, y2])
+    }
+
+    return res
+}
+
+init_visited = fn() {
+    visited = []
+    for (y = 0; y < len(map); y = y + 1) {
+        row = []
+        for (x = 0; x < len(map[0]); x = x + 1) {
+            push(row, false)
+        }
+        push(visited, row)
+    }
+
+    return visited
+}
+
+bfs = fn(x_in, y_in) {
+    queue = [[x_in, y_in]]
+    i = 0
+
+    visited = init_visited()
+    visited[y_in][x_in] = true
+
+    res = 0
+
+    while (i < len(queue)) {
+        [x, y] = queue[i] 
+        i = i + 1
+
+        if (map[y][x] == 9) {
+            res = res + 1
+            continue
+        }
+
+        neighs = get_neighbours(x, y) 
+        for (j = 0; j < len(neighs); j = j + 1) {
+            [x, y] = neighs[j]
+            if (visited[y][x]) {
+                continue
+            }
+
+            push(queue, [x, y])
+            visited[y][x] = true
+        }
+    }
+
+    return res
+}
+
+res = 0
+for (y = 0; y < len(map); y = y + 1) {
+    for (x = 0; x < len(map[0]); x = x + 1) {
+        if (map[y][x] != 0) {
+            continue
+        }
+
+        res = res + bfs(x, y)
+    }
+}
+
+print("Part one: " + str(res))
+
+// Part two
+nr_distinc = fn(x, y, visited) {
+    if (map[y][x] == 9) {
+        return 1
+    }
+
+    res = 0
+
+    neighs = get_neighbours(x, y) 
+    for (i = 0; i < len(neighs); i = i + 1) {
+       [x2, y2] = neighs[i]
+       if (visited[y2][x2]) {
+           continue
+       }
+
+       visited[y2][x2] = true
+       res = res + nr_distinc(x2, y2, visited)
+       visited[y2][x2] = false
+    }
+
+    return res
+}
+
+visited = init_visited()
+
+res = 0
+for (y = 0; y < len(map); y = y + 1) {
+    for (x = 0; x < len(map[0]); x = x + 1) {
+        if (map[y][x] != 0) {
+            continue
+        }
+
+        visited[y][x] = true
+        res = res + nr_distinc(x, y, visited)
+        visited[y][x] = false
+    }
+}
+print("Part two: " + str(res))
