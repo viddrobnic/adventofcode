@@ -1,0 +1,11 @@
+(lang dune 3.20)
+
+(name aoc)
+
+(generate_opam_files false)
+
+(package
+ (name aoc)
+ (depends ocaml)
+)
+; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
