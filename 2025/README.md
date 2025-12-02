@@ -8,7 +8,7 @@ This year I am back to OCaml as my language of choice.
 |  Day   | Name            | 🐪  |
 | :----: | :-------------- | :-: |
 | Day 1  | Secret Entrance | 🎄  |
-| Day 2  | ???             | ❄️  |
+| Day 2  | Gift Shop       | 🎄  |
 | Day 3  | ???             | ❄️  |
 | Day 4  | ???             | ❄️  |
 | Day 5  | ???             | ❄️  |
