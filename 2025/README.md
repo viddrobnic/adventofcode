@@ -11,7 +11,7 @@ This year I am back to OCaml as my language of choice.
 | Day 2  | Gift Shop           | 🎄  |
 | Day 3  | Lobby               | 🎄  |
 | Day 4  | Printing Department | 🎄  |
-| Day 5  | ???                 | ❄️  |
+| Day 5  | Cafeteria           | 🎄  |
 | Day 6  | ???                 | ❄️  |
 | Day 7  | ???                 | ❄️  |
 | Day 8  | ???                 | ❄️  |
