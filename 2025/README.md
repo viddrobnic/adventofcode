@@ -13,7 +13,7 @@ This year I am back to OCaml as my language of choice.
 | Day 4  | Printing Department | 🎄  |
 | Day 5  | Cafeteria           | 🎄  |
 | Day 6  | Trash Compactor     | 🎄  |
-| Day 7  | ???                 | ❄️  |
+| Day 7  | Laboratories        | 🎄  |
 | Day 8  | ???                 | ❄️  |
 | Day 9  | ???                 | ❄️  |
 | Day 10 | ???                 | ❄️  |
