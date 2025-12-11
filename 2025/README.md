@@ -17,7 +17,7 @@ This year I am back to OCaml as my language of choice.
 | Day 8  | Playground          | 🎄  |
 | Day 9  | Movie Theater       | 🎄  |
 | Day 10 | Factory             | 🌲  |
-| Day 11 | ???                 | ❄️  |
+| Day 11 | Reactor             | 🎄  |
 | Day 12 | ???                 | ❄️  |
 
 ### Legend
